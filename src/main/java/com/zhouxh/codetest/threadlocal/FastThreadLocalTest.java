@@ -1,11 +1,14 @@
 package com.zhouxh.codetest.threadlocal;
 
+import io.netty.util.concurrent.FastThreadLocal;
+import io.netty.util.concurrent.FastThreadLocalThread;
+
 import java.io.IOException;
 
-public class ThreadLocalTest {
+public class FastThreadLocalTest {
 
     //保证每个线程都持有一个RedisClient实例。
-    private static ThreadLocal<RedisClient> REDIS_CLIENT_HOLDER =  new ThreadLocal<RedisClient>(){
+    private static FastThreadLocal<RedisClient> REDIS_CLIENT_HOLDER =  new FastThreadLocal<RedisClient>(){
         /**
          * 当前线程没有RedisClient实例，会调用此方法初始化RedisClient实例。
          * @return
@@ -17,7 +20,7 @@ public class ThreadLocalTest {
     };
 
     //保证每个线程都持有一个MySQLClient实例。
-    private static ThreadLocal<MySQLClient> MYSQL_CLIENT_HOLDER =  new ThreadLocal<MySQLClient>(){
+    private static FastThreadLocal<MySQLClient> MYSQL_CLIENT_HOLDER =  new FastThreadLocal<MySQLClient>(){
         @Override
         protected MySQLClient initialValue() {
             return new MySQLClient();
@@ -30,7 +33,7 @@ public class ThreadLocalTest {
 
 
         for(int i=0; i<1; i++){
-            Thread thread = new Thread(()->{
+            Thread thread = new FastThreadLocalThread(()->{
 
                 String threadName = Thread.currentThread().getName();
 
