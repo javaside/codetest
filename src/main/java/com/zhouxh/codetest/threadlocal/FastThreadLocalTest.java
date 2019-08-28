@@ -56,7 +56,7 @@ public class FastThreadLocalTest {
         }
 
 
-//        System.out.print("请输入任何字符按回车键退出程序。");
-//        System.in.read();
+        System.out.print("请输入任何字符按回车键退出程序。");
+        System.in.read();
     }
 }
