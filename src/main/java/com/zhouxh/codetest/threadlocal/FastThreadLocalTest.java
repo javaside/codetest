@@ -1,5 +1,6 @@
 package com.zhouxh.codetest.threadlocal;
 
+import com.zhouxh.codetest.comm.ScreenUtils;
 import io.netty.util.concurrent.FastThreadLocal;
 import io.netty.util.concurrent.FastThreadLocalThread;
 
@@ -54,9 +55,6 @@ public class FastThreadLocalTest {
 
             thread.start();
         }
-
-
-        System.out.print("请输入任何字符按回车键退出程序。");
-        System.in.read();
+        ScreenUtils.pause();
     }
 }

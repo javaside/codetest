@@ -1,5 +1,7 @@
 package com.zhouxh.codetest.threadlocal;
 
+import com.zhouxh.codetest.comm.ScreenUtils;
+
 import java.io.IOException;
 
 public class ThreadLocalTest {
@@ -53,7 +55,6 @@ public class ThreadLocalTest {
         }
 
 
-        System.out.print("请输入任何字符按回车键退出程序。");
-        System.in.read();
+        ScreenUtils.pause();
     }
 }
